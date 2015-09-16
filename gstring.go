@@ -51,7 +51,7 @@ func gformat(format string, args map[string]interface{}) (string, []interface{})
 					new_format = append(new_format, defaultFormat...)
 				}
 				// reset format args for new iteration
-				current_args_runes = make([]rune, 0, 10)
+				current_args_runes = current_args_runes[0:0]
 			}
 
 			var name string
@@ -61,7 +61,7 @@ func gformat(format string, args map[string]interface{}) (string, []interface{})
 				name = string(current_name_runes)
 			}
 			// reset name runes for next interation
-			current_name_runes = make([]rune, 0, 10)
+			current_name_runes = current_name_runes[0:0]
 
 			// get value from provided args and append it to new_format_args
 			val, ok := args[name]
