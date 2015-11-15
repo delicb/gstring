@@ -21,6 +21,8 @@ func gformat(format string, args map[string]interface{}) (string, []interface{})
 	// flag that indicates if current place is format string in inside { } and after :
 	var in_args = false
 
+	var previousChar rune
+
 	// temp slice for holding name in current format
 	var current_name_runes = make([]rune, 0, 10)
 
@@ -29,22 +31,30 @@ func gformat(format string, args map[string]interface{}) (string, []interface{})
 
 	var new_format_params []interface{}
 
-	for _, ch := range format {
+	for i, ch := range format {
+		if i > 0 {
+			previousChar = rune(format[i-1])
+		}
 		switch ch {
 		case '{':
-			// Not supporting escaping { for now
-			if in_format {
-				panic("Invalid format string!")
+			if in_format && previousChar == '{' {
+				in_format = false
+				new_format = append(new_format, ch)
+				break
 			}
 			in_format = true
 		case '}':
-			// Not supporting escaping } for now
 			if !in_format {
-				panic("Invalid format string")
+				if previousChar == '}' {
+					new_format = append(new_format, ch)
+					break
+				}
+				// what to do if not in_format and only single } appears?
+				break
 			}
 			if in_format {
 				if len(current_args_runes) > 0 {
-					// append formatting argumenst to new_format directly
+					// append formatting arguments to new_format directly
 					new_format = append(new_format, current_args_runes...)
 				} else {
 					// if no arguments are supplied, use default ones
@@ -56,11 +66,12 @@ func gformat(format string, args map[string]interface{}) (string, []interface{})
 
 			var name string
 			if len(current_name_runes) == 0 {
+				fmt.Println("Adding empty placeholder")
 				name = "EMPTY_PLACEHOLDER"
 			} else {
 				name = string(current_name_runes)
 			}
-			// reset name runes for next interation
+			// reset name runes for next iteration
 			current_name_runes = current_name_runes[0:0]
 
 			// get value from provided args and append it to new_format_args

@@ -2,6 +2,7 @@ package gstring
 
 import (
 	"testing"
+	"fmt"
 )
 
 func TestSprintf(t *testing.T) {
@@ -15,6 +16,14 @@ func TestSprintf(t *testing.T) {
 
 func Test_Sprintf(t *testing.T) {
 	if s := Sprintm("{test}", map[string]interface{}{"test": "hello gstring"}); s != "hello gstring" {
+		t.Fail()
+	}
+}
+
+func TestEscapeBracket(t *testing.T) {
+	res := Sprintm("{{ some text }}", map[string]interface{}{})
+	if res != "{ some text }" {
+		fmt.Println(res)
 		t.Fail()
 	}
 }
