@@ -1,4 +1,4 @@
-package gst
+package gstring
 
 import (
 	"testing"

@@ -4,4 +4,4 @@
 // library, but it should enhance it.
 //
 // TODO: Escaping "{" and "}" characters instead of panicing.
-package gst
+package gstring
