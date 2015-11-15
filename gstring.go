@@ -10,8 +10,8 @@ var defaultFormat = []rune("%s")
 // Receives format string in gstring format and map of arguments and translates
 // them to format and arguments compatible with standard golang formatting.
 func gformat(format string, args map[string]interface{}) (string, []interface{}) {
-	// holder for new format string - capacety as length of provided string
-	// should be enough not to resize durring appending, since expected length
+	// holder for new format string - capacity as length of provided string
+	// should be enough not to resize during appending, since expected length
 	// of new format is smaller then provided one (names are removed)
 	var new_format = make([]rune, 0, len(format))
 
