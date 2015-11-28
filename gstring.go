@@ -66,7 +66,6 @@ func gformat(format string, args map[string]interface{}) (string, []interface{})
 
 			var name string
 			if len(current_name_runes) == 0 {
-				fmt.Println("Adding empty placeholder")
 				name = "EMPTY_PLACEHOLDER"
 			} else {
 				name = string(current_name_runes)
@@ -104,6 +103,7 @@ func gformat(format string, args map[string]interface{}) (string, []interface{})
 }
 
 // interface similar to "fmt" package
+
 // Errorm returns error instance with formatted error message.
 // This is same as fmt.Errorf, but uses gstring formatting.
 func Errorm(format string, args map[string]interface{}) error {
