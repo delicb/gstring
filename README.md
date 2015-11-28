@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/delicb/gstring.svg?branch=master)](https://travis-ci.org/delicb/gstring)
+[![Coverage](https://img.shields.io/badge/coverage-87.0%-brightgreen.svg)](http://gocover.io/github.com/delicb/gstring)
+[![GoDoc](http://godoc.org/github.com/delicb/gstring?status.png)](http://godoc.org/github.com/delicb/gstring)
 # gstring
 Python like string formatting for golang.
 
