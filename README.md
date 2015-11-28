@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/delicb/gstring.svg?branch=master)](https://travis-ci.org/delicb/gstring)
 # gstring
 Python like string formatting for golang.
 
