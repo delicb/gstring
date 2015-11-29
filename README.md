@@ -1,8 +1,7 @@
-[![Build Status](https://travis-ci.org/delicb/gstring.svg?branch=master)](https://travis-ci.org/delicb/gstring)
+# gstring
+Python like string formatting for golang. [![Build Status](https://travis-ci.org/delicb/gstring.svg?branch=master)](https://travis-ci.org/delicb/gstring)
 [![Coverage](http://gocover.io/_badge/github.com/delicb/gstring)](http://gocover.io/github.com/delicb/gstring)
 [![GoDoc](http://godoc.org/github.com/delicb/gstring?status.png)](http://godoc.org/github.com/delicb/gstring)
-# gstring
-Python like string formatting for golang.
 
 ## Why?
 Golang already has great features for string formatting (entire [fmt](https://golang.org/pkg/fmt/) package) I missed named parameters for string formatting. Intention of this library is to mimic subset of features that python's format function offers.
