@@ -41,3 +41,10 @@ func TestFprintm(t *testing.T) {
 		t.Fatal("Expected 'k', got: ", b.String())
 	}
 }
+
+func TestWithColon(t *testing.T) {
+	out := Sprintm("test : {test}", map[string]interface{}{"test": "value"})
+	if out != "test : value" {
+		t.Fatal("Expected 'test : value', got: ", out)
+	}
+}

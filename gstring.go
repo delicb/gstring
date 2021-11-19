@@ -86,6 +86,8 @@ func gformat(format string, args map[string]interface{}) (string, []interface{})
 		case ':':
 			if in_format {
 				in_args = true
+			} else {
+				new_format = append(new_format, ch)
 			}
 		default:
 			if in_format {
